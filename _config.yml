@@ -149,6 +149,9 @@ pwa:
 
 paginate: 10
 
+# Enable future posts
+future: true
+
 # The base URL of your site
 baseurl: ""
 

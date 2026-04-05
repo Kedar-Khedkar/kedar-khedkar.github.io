@@ -5,8 +5,9 @@ author: kedarkhedkar
 date: 2026-04-05 10:00:00 +0000
 categories: [GCP, BigQuery]    # CATEGORY names should always be lowercase
 tags: [Cheatsheet]    # TAG names should always be lowercase
+pin: true
 image:
-    path: /assets/images/bq-cli-cheatsheet.png
+    path: /assets/img/posts/bq-cli-cheatsheet.png
     alt: BigQuery CLI Cheatsheet
 ---
 
