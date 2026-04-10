@@ -4,8 +4,8 @@ description: A quick reference for BQ CLI commands.
 author: kedarkhedkar
 date: 2026-04-05 10:00:00 +0000
 categories: [GCP, BigQuery]    # CATEGORY names should always be lowercase
-tags: [Cheatsheet]    # TAG names should always be lowercase
-pin: true
+tags: [cheatsheet, bigquery, gcp]    # TAG names should always be lowercase
+pin: false
 image:
     path: /assets/img/posts/bq-cli-cheatsheet.png
     alt: BigQuery CLI Cheatsheet

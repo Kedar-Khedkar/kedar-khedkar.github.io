@@ -4,8 +4,8 @@ description: A quick reference guide for essential GNU Nano text editor commands
 author: kedarkhedkar
 date: 2026-04-05 10:00:00 +0000
 categories: [Linux, Command Line]    # CATEGORY names should always be lowercase
-tags: [nano, Cheatsheet, text-editor, terminal]   # TAG names should always be lowercase
-pin: true
+tags: [nano, cheatsheet, text-editor, terminal]   # TAG names should always be lowercase
+pin: false
 image:
     path: /assets/img/posts/nano-editor-cheatsheet.png
     alt: BigQuery CLI Cheatsheet

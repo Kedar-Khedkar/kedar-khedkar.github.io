@@ -5,7 +5,7 @@ author: kedarkhedkar
 date: 2026-04-10 10:00:00 +0000
 categories: [Data Engineering, System Design]    # CATEGORY names should always be lowercase
 tags: [dbms, interview prep, distributed systems,databases]   # TAG names should always be lowercase
-pin: true
+pin: false
 image:
     path: /assets/img/posts/cap-theorem.png
     alt: cap theorem explained
