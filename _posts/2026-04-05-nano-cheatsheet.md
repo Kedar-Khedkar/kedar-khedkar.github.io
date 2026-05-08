@@ -3,7 +3,8 @@ title: Nano Text Editor Cheat Sheet
 description: A quick reference guide for essential GNU Nano text editor commands and shortcuts.
 author: kedarkhedkar
 date: 2026-04-05 10:00:00 +0000
-categories: [Linux, Command Line]    # CATEGORY names should always be lowercase
+categories: 
+    - Cheatsheets   # CATEGORY names should always be lowercase
 tags: [nano, cheatsheet, text-editor, terminal]   # TAG names should always be lowercase
 pin: false
 image:
