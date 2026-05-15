@@ -15,7 +15,7 @@ keywords:
   - OLAP schema design tutorial
   - database schema types explained
 categories:
-  - DBMS
+  - [Data Engineering,DBMS]
 tags:
   - dbms
   - data-warehousing
@@ -24,6 +24,7 @@ tags:
   - snowflake-schema
   - sql
   - olap
+  - interview prep
 author: kedarkhedkar
 date: 2026-05-15 10:00:00 +0000
 slug: star-vs-snowflake-schema-explained
