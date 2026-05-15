@@ -159,6 +159,7 @@ baseurl: ""
 
 plugins:
   - jekyll-sitemap
+  - jekyll-archives
 
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
