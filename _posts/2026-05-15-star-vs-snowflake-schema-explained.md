@@ -14,8 +14,7 @@ keywords:
   - when to use star schema
   - OLAP schema design tutorial
   - database schema types explained
-categories:
-  - [Data Engineering,DBMS]
+categories: [Data Engineering,DBMS]
 tags:
   - dbms
   - data-warehousing
