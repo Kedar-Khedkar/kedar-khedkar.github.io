@@ -4,7 +4,7 @@ description: "Understand the CAP theorem (Consistency, Availability, Partition T
 author: kedarkhedkar
 date: 2026-04-10 10:00:00 +0000
 categories: [Data Engineering, System Design]    # CATEGORY names should always be lowercase
-tags: [dbms, interview prep, distributed systems,databases]   # TAG names should always be lowercase
+tags: [dbms, interview-prep, distributed-systems, databases]   # TAG names should always be lowercase
 pin: false
 image:
     path: /assets/img/posts/cap-theorem.png
@@ -122,11 +122,11 @@ Here's the **intuitive proof** — imagine a network partition happens:
 
 **Now you have a choice:**
 
-| Choice | What Happens | You Sacrifice |
-|--------|-------------|---------------|
-| **Keep Consistency** | Node B refuses to respond until it syncs with A | ❌ Availability (B is down) |
-| **Keep Availability** | Node B responds with its own (possibly stale) data | ❌ Consistency (A ≠ B) |
-| **Ignore Partition** | Only works if partition never happens | ❌ Partition Tolerance (unrealistic) |
+| Choice                | What Happens                                       | You Sacrifice                       |
+| --------------------- | -------------------------------------------------- | ----------------------------------- |
+| **Keep Consistency**  | Node B refuses to respond until it syncs with A    | ❌ Availability (B is down)          |
+| **Keep Availability** | Node B responds with its own (possibly stale) data | ❌ Consistency (A ≠ B)               |
+| **Ignore Partition**  | Only works if partition never happens              | ❌ Partition Tolerance (unrealistic) |
 
 > 💡 *"You can't have a system that always responds (A), always returns the latest data (C), AND handles network splits (P) — pick two."*
 
@@ -159,13 +159,13 @@ Since **Partition Tolerance is mandatory** in real distributed systems (networks
 - ❌ System may be **unavailable** during partitions
 - **Use cases:** Financial systems, banking, inventory management
 
-| CP Databases | Description |
-|-------------|------------|
-| **MongoDB** (default config) | Strong consistency, may block during partition |
-| **HBase** | Consistent reads/writes on Hadoop |
-| **Redis** (cluster) | Can prefer consistency |
-| **Zookeeper** | Coordination service — consistency is critical |
-| **etcd** | Distributed key-value store (used by Kubernetes) |
+| CP Databases                 | Description                                      |
+| ---------------------------- | ------------------------------------------------ |
+| **MongoDB** (default config) | Strong consistency, may block during partition   |
+| **HBase**                    | Consistent reads/writes on Hadoop                |
+| **Redis** (cluster)          | Can prefer consistency                           |
+| **Zookeeper**                | Coordination service — consistency is critical   |
+| **etcd**                     | Distributed key-value store (used by Kubernetes) |
 
 - **Interview tip:** *"Choose CP when **wrong data is worse than no data** — like bank balances or seat booking."*
 
@@ -191,13 +191,13 @@ Since **Partition Tolerance is mandatory** in real distributed systems (networks
 - Relies on **eventual consistency** — nodes will sync later
 - **Use cases:** Social media feeds, shopping carts, DNS, CDNs
 
-| AP Databases | Description |
-|-------------|------------|
-| **Cassandra** | Always available, eventually consistent |
-| **DynamoDB** | AWS managed, highly available |
-| **CouchDB** | Availability-first document store |
-| **Riak** | Distributed key-value, AP by design |
-| **Cosmos DB** (configurable) | Can be tuned for AP |
+| AP Databases                 | Description                             |
+| ---------------------------- | --------------------------------------- |
+| **Cassandra**                | Always available, eventually consistent |
+| **DynamoDB**                 | AWS managed, highly available           |
+| **CouchDB**                  | Availability-first document store       |
+| **Riak**                     | Distributed key-value, AP by design     |
+| **Cosmos DB** (configurable) | Can be tuned for AP                     |
 
 - **Interview tip:** *"Choose AP when **downtime is worse than stale data** — like social media likes or product catalog."*
 
@@ -219,11 +219,11 @@ Since **Partition Tolerance is mandatory** in real distributed systems (networks
 - ⚠️ **Not realistic** in distributed systems — partitions WILL happen
 - Only possible in **single-node systems** (traditional RDBMS)
 
-| CA Systems | Description |
-|-----------|------------|
+| CA Systems                   | Description                                   |
+| ---------------------------- | --------------------------------------------- |
 | **PostgreSQL** (single node) | Consistent + Available, no partition handling |
-| **MySQL** (single node) | Same — no distribution = no partition problem |
-| **Oracle** (single node) | Traditional RDBMS |
+| **MySQL** (single node)      | Same — no distribution = no partition problem |
+| **Oracle** (single node)     | Traditional RDBMS                             |
 
 - **Interview tip:** *"CA only works when there's no distribution. The moment you go multi-node, you MUST handle partitions (P), so CA breaks."*
 
@@ -314,13 +314,13 @@ P A C / E L C
 └────────────── Partition
 ```
 
-| System | During Partition (PAC) | Else (ELC) | Full Classification |
-|--------|----------------------|------------|-------------------|
-| Cassandra | PA (Available) | EL (Low Latency) | **PA/EL** |
-| DynamoDB | PA (Available) | EL (Low Latency) | **PA/EL** |
-| MongoDB | PC (Consistent) | EC (Consistent) | **PC/EC** |
-| HBase | PC (Consistent) | EC (Consistent) | **PC/EC** |
-| Cosmos DB | PA (configurable) | EL (configurable) | **PA/EL** (tunable) |
+| System    | During Partition (PAC) | Else (ELC)        | Full Classification |
+| --------- | ---------------------- | ----------------- | ------------------- |
+| Cassandra | PA (Available)         | EL (Low Latency)  | **PA/EL**           |
+| DynamoDB  | PA (Available)         | EL (Low Latency)  | **PA/EL**           |
+| MongoDB   | PC (Consistent)        | EC (Consistent)   | **PC/EC**           |
+| HBase     | PC (Consistent)        | EC (Consistent)   | **PC/EC**           |
+| Cosmos DB | PA (configurable)      | EL (configurable) | **PA/EL** (tunable) |
 
 - **Interview tip:** *"PACELC extends CAP by adding the latency vs consistency tradeoff during **normal** operations. It's a more complete picture."*
 
@@ -328,33 +328,33 @@ P A C / E L C
 
 ## 🎯 Real-World Scenario Decisions
 
-| Scenario | Choose | Why |
-|----------|--------|-----|
-| **Bank account balance** | **CP** | Wrong balance = disaster. Better to block than show wrong amount |
-| **Flight seat booking** | **CP** | Can't sell the same seat twice |
-| **Social media likes** | **AP** | Showing 999 vs 1000 likes temporarily is fine |
-| **Shopping cart** | **AP** | Cart should always work; sync later |
-| **DNS (Domain Name System)** | **AP** | Must always resolve; slight staleness is OK |
-| **Stock trading** | **CP** | Trades must be accurate and ordered |
-| **Chat messages** | **AP** | Message delivery > perfect ordering |
-| **Inventory count** | **CP** | Can't oversell; block if unsure |
+| Scenario                     | Choose | Why                                                              |
+| ---------------------------- | ------ | ---------------------------------------------------------------- |
+| **Bank account balance**     | **CP** | Wrong balance = disaster. Better to block than show wrong amount |
+| **Flight seat booking**      | **CP** | Can't sell the same seat twice                                   |
+| **Social media likes**       | **AP** | Showing 999 vs 1000 likes temporarily is fine                    |
+| **Shopping cart**            | **AP** | Cart should always work; sync later                              |
+| **DNS (Domain Name System)** | **AP** | Must always resolve; slight staleness is OK                      |
+| **Stock trading**            | **CP** | Trades must be accurate and ordered                              |
+| **Chat messages**            | **AP** | Message delivery > perfect ordering                              |
+| **Inventory count**          | **CP** | Can't oversell; block if unsure                                  |
 
 ---
 
 ## 🎤 Top Interview Questions & Answers
 
-| # | Question | Best Answer |
-|---|----------|------------|
-| 1 | *What is CAP theorem?* | In a distributed system, you can guarantee only 2 of 3: Consistency, Availability, Partition Tolerance |
-| 2 | *Can you have all 3?* | No. During a network partition, you must choose between C and A |
-| 3 | *Is CA realistic?* | Only for single-node systems. In distributed systems, P is mandatory, so real choice is CP vs AP |
-| 4 | *What does Cassandra choose?* | AP — always available, eventually consistent |
-| 5 | *What does MongoDB choose?* | CP — prefers consistency, may be unavailable during partition |
-| 6 | *What is eventual consistency?* | All nodes will converge to the same value eventually, if no new writes occur |
-| 7 | *When would you pick CP?* | When wrong data is worse than no data (banking, inventory, booking) |
-| 8 | *When would you pick AP?* | When downtime is worse than stale data (social media, DNS, carts) |
-| 9 | *What is PACELC?* | Extension of CAP: during Partition choose A/C, Else choose Latency/Consistency |
-| 10 | *Is CAP a strict rule?* | It's a spectrum — systems can be tuned. E.g., Cosmos DB lets you configure consistency levels |
+| #   | Question                        | Best Answer                                                                                            |
+| --- | ------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| 1   | *What is CAP theorem?*          | In a distributed system, you can guarantee only 2 of 3: Consistency, Availability, Partition Tolerance |
+| 2   | *Can you have all 3?*           | No. During a network partition, you must choose between C and A                                        |
+| 3   | *Is CA realistic?*              | Only for single-node systems. In distributed systems, P is mandatory, so real choice is CP vs AP       |
+| 4   | *What does Cassandra choose?*   | AP — always available, eventually consistent                                                           |
+| 5   | *What does MongoDB choose?*     | CP — prefers consistency, may be unavailable during partition                                          |
+| 6   | *What is eventual consistency?* | All nodes will converge to the same value eventually, if no new writes occur                           |
+| 7   | *When would you pick CP?*       | When wrong data is worse than no data (banking, inventory, booking)                                    |
+| 8   | *When would you pick AP?*       | When downtime is worse than stale data (social media, DNS, carts)                                      |
+| 9   | *What is PACELC?*               | Extension of CAP: during Partition choose A/C, Else choose Latency/Consistency                         |
+| 10  | *Is CAP a strict rule?*         | It's a spectrum — systems can be tuned. E.g., Cosmos DB lets you configure consistency levels          |
 
 ---
 

@@ -4,7 +4,7 @@ description: "Understand ACID properties (Atomicity, Consistency, Isolation, Dur
 author: kedarkhedkar
 date: 2026-04-10 13:56:00 +0530
 categories: [Data Engineering, Database Management]
-tags: [acid properties, dbms, interview prep, database transactions, sql]
+tags: [acid-properties, dbms, interview-prep, database-transactions, sql]
 pin: false
 image:
     path: /assets/img/posts/acid-properties-explained.png
@@ -92,11 +92,11 @@ Raj:   ₹15,000                         Raj:   ₹10,000 (unchanged)
 
 ### How Databases Implement It
 
-| Mechanism | How It Works |
-|-----------|-------------|
+| Mechanism                 | How It Works                                                            |
+| ------------------------- | ----------------------------------------------------------------------- |
 | **Write-Ahead Log (WAL)** | Log all changes BEFORE applying them. On crash, replay or undo from log |
-| **Undo Log** | Records the old values so changes can be rolled back |
-| **Shadow Paging** | Writes to a copy; swap pointers only on commit |
+| **Undo Log**              | Records the old values so changes can be rolled back                    |
+| **Shadow Paging**         | Writes to a copy; swap pointers only on commit                          |
 
 - **Interview tip:** *"Atomicity = a transaction is an indivisible unit. If any part fails, the entire transaction rolls back. Think of it as a single atomic operation."*
 
@@ -256,22 +256,22 @@ Txn A: SELECT COUNT(*) WHERE city='Mumbai' → 6 rows ← PHANTOM! 👻
 
 ### Isolation Level vs Problems Matrix
 
-| Isolation Level | Dirty Read | Non-Repeatable Read | Phantom Read | Performance |
-|-----------------|------------|---------------------|--------------|-------------|
-| **Read Uncommitted** | ❌ Possible | ❌ Possible | ❌ Possible | ⚡⚡⚡⚡ Fastest |
-| **Read Committed** | ✅ Prevented | ❌ Possible | ❌ Possible | ⚡⚡⚡ Fast |
-| **Repeatable Read** | ✅ Prevented | ✅ Prevented | ❌ Possible | ⚡⚡ Medium |
-| **Serializable** | ✅ Prevented | ✅ Prevented | ✅ Prevented | ⚡ Slowest |
+| Isolation Level      | Dirty Read  | Non-Repeatable Read | Phantom Read | Performance  |
+| -------------------- | ----------- | ------------------- | ------------ | ------------ |
+| **Read Uncommitted** | ❌ Possible  | ❌ Possible          | ❌ Possible   | ⚡⚡⚡⚡ Fastest |
+| **Read Committed**   | ✅ Prevented | ❌ Possible          | ❌ Possible   | ⚡⚡⚡ Fast     |
+| **Repeatable Read**  | ✅ Prevented | ✅ Prevented         | ❌ Possible   | ⚡⚡ Medium    |
+| **Serializable**     | ✅ Prevented | ✅ Prevented         | ✅ Prevented  | ⚡ Slowest    |
 
 ### What Databases Default To
 
-| Database | Default Isolation Level |
-|----------|----------------------|
-| **PostgreSQL** | Read Committed |
-| **MySQL (InnoDB)** | Repeatable Read |
-| **Oracle** | Read Committed |
-| **SQL Server** | Read Committed |
-| **SQLite** | Serializable |
+| Database           | Default Isolation Level |
+| ------------------ | ----------------------- |
+| **PostgreSQL**     | Read Committed          |
+| **MySQL (InnoDB)** | Repeatable Read         |
+| **Oracle**         | Read Committed          |
+| **SQL Server**     | Read Committed          |
+| **SQLite**         | Serializable            |
 
 - **Interview tip:** *"Isolation is a spectrum — you trade off safety for performance. Most production systems use Read Committed as a balance."*
 
@@ -379,16 +379,16 @@ In the world of **NoSQL** and **distributed systems**, there's an alternative ph
      Pessimistic                     Optimistic
 ```
 
-| | ACID | BASE |
-|---|---|---|
-| **Full Form** | Atomicity, Consistency, Isolation, Durability | **B**asically **A**vailable, **S**oft state, **E**ventual consistency |
-| **Philosophy** | *"Be correct at all costs"* | *"Be available at all costs"* |
-| **Consistency** | Strong (immediate) | Eventual (over time) |
-| **Transactions** | Strict, locked | Flexible, optimistic |
-| **Performance** | Lower (more locks) | Higher (fewer locks) |
-| **Scalability** | Vertical (scale up) | Horizontal (scale out) |
-| **Use Case** | Banking, Inventory, Booking | Social Media, IoT, Caching |
-| **Examples** | PostgreSQL, MySQL, Oracle | Cassandra, DynamoDB, MongoDB |
+|                  | ACID                                          | BASE                                                                  |
+| ---------------- | --------------------------------------------- | --------------------------------------------------------------------- |
+| **Full Form**    | Atomicity, Consistency, Isolation, Durability | **B**asically **A**vailable, **S**oft state, **E**ventual consistency |
+| **Philosophy**   | *"Be correct at all costs"*                   | *"Be available at all costs"*                                         |
+| **Consistency**  | Strong (immediate)                            | Eventual (over time)                                                  |
+| **Transactions** | Strict, locked                                | Flexible, optimistic                                                  |
+| **Performance**  | Lower (more locks)                            | Higher (fewer locks)                                                  |
+| **Scalability**  | Vertical (scale up)                           | Horizontal (scale out)                                                |
+| **Use Case**     | Banking, Inventory, Booking                   | Social Media, IoT, Caching                                            |
+| **Examples**     | PostgreSQL, MySQL, Oracle                     | Cassandra, DynamoDB, MongoDB                                          |
 
 ### BASE Explained
 
@@ -501,20 +501,20 @@ UPDATE accounts SET balance = -500 WHERE user_id = 'Kedar';
 
 ## 🎤 Top Interview Questions & Answers
 
-| # | Question | Best Answer |
-|---|----------|-------------|
-| 1 | *What is ACID?* | 4 properties guaranteeing reliable transactions: Atomicity, Consistency, Isolation, Durability |
-| 2 | *Explain Atomicity with an example* | Bank transfer — either both debit and credit happen, or neither does |
-| 3 | *What's the difference between Consistency in ACID vs CAP?* | ACID Consistency = rules/constraints enforced. CAP Consistency = all nodes see same data |
-| 4 | *What are isolation levels?* | Read Uncommitted → Read Committed → Repeatable Read → Serializable (weakest to strongest) |
-| 5 | *What is a dirty read?* | Reading uncommitted data from another transaction that might rollback |
-| 6 | *Phantom vs Non-Repeatable read?* | Non-Repeatable = same row, different value. Phantom = different number of rows |
-| 7 | *How is durability achieved?* | Write-Ahead Logging (WAL), redo logs, checkpointing, replication |
-| 8 | *ACID vs BASE?* | ACID = strict, consistent, RDBMS. BASE = flexible, eventually consistent, NoSQL |
-| 9 | *Which databases are ACID compliant?* | PostgreSQL, MySQL (InnoDB), Oracle, SQL Server, SQLite |
-| 10 | *Can NoSQL be ACID?* | Yes! MongoDB (4.0+) supports multi-document ACID transactions. DynamoDB has DynamoDB Transactions |
-| 11 | *Default isolation level of MySQL?* | Repeatable Read (InnoDB engine) |
-| 12 | *Default isolation level of PostgreSQL?* | Read Committed |
+| #   | Question                                                    | Best Answer                                                                                       |
+| --- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| 1   | *What is ACID?*                                             | 4 properties guaranteeing reliable transactions: Atomicity, Consistency, Isolation, Durability    |
+| 2   | *Explain Atomicity with an example*                         | Bank transfer — either both debit and credit happen, or neither does                              |
+| 3   | *What's the difference between Consistency in ACID vs CAP?* | ACID Consistency = rules/constraints enforced. CAP Consistency = all nodes see same data          |
+| 4   | *What are isolation levels?*                                | Read Uncommitted → Read Committed → Repeatable Read → Serializable (weakest to strongest)         |
+| 5   | *What is a dirty read?*                                     | Reading uncommitted data from another transaction that might rollback                             |
+| 6   | *Phantom vs Non-Repeatable read?*                           | Non-Repeatable = same row, different value. Phantom = different number of rows                    |
+| 7   | *How is durability achieved?*                               | Write-Ahead Logging (WAL), redo logs, checkpointing, replication                                  |
+| 8   | *ACID vs BASE?*                                             | ACID = strict, consistent, RDBMS. BASE = flexible, eventually consistent, NoSQL                   |
+| 9   | *Which databases are ACID compliant?*                       | PostgreSQL, MySQL (InnoDB), Oracle, SQL Server, SQLite                                            |
+| 10  | *Can NoSQL be ACID?*                                        | Yes! MongoDB (4.0+) supports multi-document ACID transactions. DynamoDB has DynamoDB Transactions |
+| 11  | *Default isolation level of MySQL?*                         | Repeatable Read (InnoDB engine)                                                                   |
+| 12  | *Default isolation level of PostgreSQL?*                    | Read Committed                                                                                    |
 
 ---
 

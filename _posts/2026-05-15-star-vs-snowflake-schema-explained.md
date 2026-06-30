@@ -23,7 +23,7 @@ tags:
   - snowflake-schema
   - sql
   - olap
-  - interview prep
+  - interview-prep
 author: kedarkhedkar
 date: 2026-05-15 10:00:00 +0000
 slug: star-vs-snowflake-schema-explained
@@ -102,14 +102,14 @@ Same idea as Star, **but** the surrounding dimension tables are **broken down fu
 
 ## 🆚 Quick Comparison Table
 
-| Feature | ⭐ Star Schema | ❄️ Snowflake Schema |
-|---|---|---|
-| Structure | Simple, flat | Complex, branched |
-| Query Speed | **Faster** | Slower (more joins) |
-| Storage | More space | **Less space** |
-| Redundancy | Higher | Lower |
-| Ease of Use | **Easier** | Harder |
-| Best For | Smaller, simpler data | Large, complex data |
+| Feature     | ⭐ Star Schema         | ❄️ Snowflake Schema  |
+| ----------- | --------------------- | ------------------- |
+| Structure   | Simple, flat          | Complex, branched   |
+| Query Speed | **Faster**            | Slower (more joins) |
+| Storage     | More space            | **Less space**      |
+| Redundancy  | Higher                | Lower               |
+| Ease of Use | **Easier**            | Harder              |
+| Best For    | Smaller, simpler data | Large, complex data |
 
 ---
 
@@ -184,15 +184,15 @@ Explain Snowflake and Star schema in layman terms , easy to remember. Give inter
 
 ## 📊 Side-by-Side Comparison
 
-| Feature | ⭐ Star Schema | ❄️ Snowflake Schema |
-|---|---|---|
-| **Structure** | Simple, flat | Complex, normalized |
+| Feature              | ⭐ Star Schema            | ❄️ Snowflake Schema           |
+| -------------------- | ------------------------ | ---------------------------- |
+| **Structure**        | Simple, flat             | Complex, normalized          |
 | **Dimension Tables** | Denormalized (one level) | Normalized (multiple levels) |
-| **Query Speed** | ✅ Faster (fewer joins) | 🐢 Slower (more joins) |
-| **Storage** | ❌ More storage used | ✅ Less storage used |
-| **Maintenance** | Easier | Harder |
-| **Best For** | Reporting & Dashboards | Large, complex DWH |
-| **Complexity** | Low | High |
+| **Query Speed**      | ✅ Faster (fewer joins)   | 🐢 Slower (more joins)        |
+| **Storage**          | ❌ More storage used      | ✅ Less storage used          |
+| **Maintenance**      | Easier                   | Harder                       |
+| **Best For**         | Reporting & Dashboards   | Large, complex DWH           |
+| **Complexity**       | Low                      | High                         |
 
 ---
 
@@ -221,12 +221,12 @@ Explain Snowflake and Star schema in layman terms , easy to remember. Give inter
 
 ## 💡 Power Tips for Interviews
 
-| Tip | What to Say |
-|---|---|
-| 🔑 **Drop keywords** | "denormalization", "grain of fact table", "surrogate key", "slowly changing dimensions" |
-| 📐 **Mention grain** | *"First step in design is defining the grain — the lowest level of detail in the fact table"* |
-| 🔗 **Mention SCD** | *"Dimension tables can have Slowly Changing Dimensions (SCD Type 1, 2, 3)"* |
-| ⚡ **Performance angle** | *"Star schema is preferred in OLAP systems because of fewer joins = faster aggregations"* |
+| Tip                     | What to Say                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------- |
+| 🔑 **Drop keywords**     | "denormalization", "grain of fact table", "surrogate key", "slowly changing dimensions"           |
+| 📐 **Mention grain**     | *"First step in design is defining the grain — the lowest level of detail in the fact table"*     |
+| 🔗 **Mention SCD**       | *"Dimension tables can have Slowly Changing Dimensions (SCD Type 1, 2, 3)"*                       |
+| ⚡ **Performance angle** | *"Star schema is preferred in OLAP systems because of fewer joins = faster aggregations"*         |
 | 🏢 **Real tool context** | *"Tools like Amazon Redshift, Snowflake DB, and BigQuery work very efficiently with Star schema"* |
 
 ---
