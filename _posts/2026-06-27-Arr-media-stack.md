@@ -30,7 +30,8 @@ date: 2026-06-27 10:00:00 +0000
 slug: arr-stack-raspberry-pi5-media-server
 canonical_url: https://kedar-khedkar.github.io/posts/arr-stack-raspberry-pi5-media-server
 image:
-
+    path: /assets/img/posts/media-server.png
+    alt: media server stack 
 og_title: "Arr Stack on Raspberry Pi 5: Self-Hosted Media Server"
 og_description: "Build a full self-hosted media stack on Raspberry Pi 5 —
   Sonarr, Radarr, Prowlarr, Jellyfin & Docker Compose guide."
