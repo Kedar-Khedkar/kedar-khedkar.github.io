@@ -27,6 +27,7 @@ tags:
   - media-server
 author: kedarkhedkar
 date: 2026-06-27 10:00:00 +0000
+mermaid: true
 slug: arr-stack-raspberry-pi5-media-server
 canonical_url: https://kedar-khedkar.github.io/posts/arr-stack-raspberry-pi5-media-server
 image:
