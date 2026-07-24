@@ -300,7 +300,7 @@ The IP returned should be your **VPN server's IP**, not your real one. If it mat
 
 I've genericized the original file: removed hard-coded secrets, replaced ProtonVPN-specific values with provider-neutral placeholders, replaced `<Disk UUID>` / `<Server IP>` with clearly named tokens, and rewrote every comment to explain **what to change and why**.
 
-```yaml 
+```yaml
 # ==============================================================================
 #  SELF-HOSTED MEDIA STACK  —  Raspberry Pi 5 (or any Docker host)
 # ==============================================================================

@@ -1,11 +1,20 @@
 ---
 title: BQ CLI Commands Cheatsheet
-description: A quick reference for BQ CLI commands.
+description: "A quick reference cheatsheet for BigQuery CLI (bq) commands.
+  Covers dataset and table ops, query execution, load jobs,
+  and schema management on GCP."
 author: kedarkhedkar
 date: 2026-04-05 10:00:00 +0000
 categories: [GCP, BigQuery]    # CATEGORY names should always be lowercase
-tags: [cheatsheet, bigquery, gcp]    # TAG names should always be lowercase
+tags: [cheatsheet, bigquery, gcp, terminal]    # TAG names should always be lowercase
 pin: false
+slug: bigquery-cli-bq-commands-cheatsheet
+canonical_url: https://kedar-khedkar.github.io/posts/bigquery-cli-bq-commands-cheatsheet
+og_title: "BigQuery CLI Cheatsheet: Essential bq Commands Guide"
+og_description: "All essential BigQuery CLI (bq) commands in one place —
+  datasets, tables, queries, load jobs & schema ops on GCP."
+og_type: article
+og_url: https://kedar-khedkar.github.io/posts/bigquery-cli-bq-commands-cheatsheet
 image:
     path: /assets/img/posts/bq-cli-cheatsheet.png
     alt: BigQuery CLI Cheatsheet

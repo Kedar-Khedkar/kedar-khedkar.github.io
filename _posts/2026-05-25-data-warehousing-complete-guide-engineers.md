@@ -145,6 +145,7 @@ ELT:  Source → Load into DWH → [Transform]      (Modern/Cloud)
 ## 6. Schema Design Patterns (The Heart of DWH)
 
 ### ⭐ Star Schema
+>
 > **Most common. Easy to understand. Fast queries.**
 
 ```text
@@ -176,6 +177,7 @@ ELT:  Source → Load into DWH → [Transform]      (Modern/Cloud)
 ```
 
 **Characteristics:**
+
 - **Fact Table** (center) = Measurable events (sales, clicks, transactions)
 - **Dimension Tables** (points of the star) = Descriptive context (who, what, when, where)
 - Denormalized dimensions → fewer JOINs → **fast queries**
@@ -183,6 +185,7 @@ ELT:  Source → Load into DWH → [Transform]      (Modern/Cloud)
 ---
 
 ### ❄️ Snowflake Schema
+>
 > **Normalized dimensions — dimensions have sub-dimensions**
 
 ```text
@@ -205,6 +208,7 @@ ELT:  Source → Load into DWH → [Transform]      (Modern/Cloud)
 ```
 
 **Characteristics:**
+
 - Dimensions are **normalized** (broken into sub-tables)
 - Saves storage, reduces redundancy
 - **More JOINs** → slightly slower queries
@@ -226,6 +230,7 @@ ELT:  Source → Load into DWH → [Transform]      (Modern/Cloud)
 ---
 
 ### 🗄️ Data Vault 2.0
+>
 > **For enterprise-scale, audit-heavy environments**
 
 | Component | Purpose | Example |
@@ -271,6 +276,7 @@ ELT:  Source → Load into DWH → [Transform]      (Modern/Cloud)
 ## 9. Key Measures & Concepts
 
 ### Grain
+>
 > **"What does one row in the fact table represent?"**
 
 This is the **most important decision** in DWH design.
