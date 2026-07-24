@@ -29,6 +29,8 @@ date: 2026-05-25 10:00:00 +0000
 slug: data-warehousing-complete-guide-engineers
 canonical_url: https://kedar-khedkar.github.io/posts/data-warehousing-complete-guide-engineers
 image:
+  path: /assets/img/posts/data-warehousing-guide.png  
+  alt: Data Warehousing Guide
 
 og_title: "Data Warehousing Complete Guide for Data Engineers"
 og_description: "Everything a data engineer needs to know about data warehousing
