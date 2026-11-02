@@ -31,7 +31,8 @@ date: 2026-11-02 10:30:00 +0000
 slug: github-line-endings-crlf-lf-extension
 canonical_url: https://kedar-khedkar.github.io/posts/github-line-endings-crlf-lf-extension
 image:
-
+    path: /assets/img/posts/fix-github-line-ending-thumbnail.png
+    alt: github line ending thumbnail
 og_title: "GitHub Line Endings Extension: Detect CRLF vs LF"
 og_description: "Built a Chrome extension that shows CRLF vs LF line endings
   on GitHub — no more mystery diffs or broken shell scripts."
